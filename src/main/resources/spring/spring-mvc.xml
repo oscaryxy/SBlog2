@@ -9,11 +9,12 @@
                         http://www.springframework.org/schema/context/spring-context-3.2.xsd
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--本文件相当于-->
 <!--启用spring的注解annotation -->
 <context:annotation-config/>
 
 <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-<context:component-scan base-package="example.controller">
+<context:component-scan base-package="example.controller ">
     <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 </context:component-scan>
 

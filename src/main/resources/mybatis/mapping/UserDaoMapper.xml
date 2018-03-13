@@ -7,4 +7,10 @@
     <select id="getAllUsers" resultType="User">
         select id,`name`,address from user
     </select>
+
+    <!--select表示查询,它的id名称必须与DAO层接口的方法名相同,否则无法绑定-->
+    <select id="selectByName" parameterType="string" resultType="User">
+        select * from user where username = #{username}
+    </select>
 </mapper>
+

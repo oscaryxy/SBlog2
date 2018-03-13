@@ -59,4 +59,7 @@
         <property name="mapperInterface" value="example.dao.UserDao"></property>
     </bean>
 
+
+
+
 </beans>

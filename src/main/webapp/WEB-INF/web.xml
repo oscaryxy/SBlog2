@@ -62,9 +62,9 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>springMVC</servlet-name>
+    <!-- 拦截所有*.do 的请求,交给DispatcherServlet处理,性能最好 -->
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-
 
   <!-- 错误跳转页面 -->
   <error-page>
