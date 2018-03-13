@@ -1,5 +1,6 @@
 import example.dao.UserDao;
 import example.pojo.User;
+import example.pojo.Usertwo;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -26,7 +27,7 @@ public class UserDaoTest {
         try {
             //通过MyBatis实现接口UserDAO，返回实例
             UserDao userDao = session.getMapper(UserDao.class);
-            List<User> users = userDao.getAllUsers();
+            List<Usertwo> users = userDao.getAllUsers();
             System.out.println(users);
             users.forEach(user-> logger.info(user.getId()+","+user.getName()+","+user.getAddress()));
         } finally {
@@ -47,7 +48,7 @@ public class UserDaoTest {
         try {
             //通过MyBatis实现接口UserDAO，返回实例
             UserDao userDao = session.getMapper(UserDao.class);
-            List<User> users = userDao.getAllUsers();
+            List<Usertwo> users = userDao.getAllUsers();
             logger.info(users);
             users.forEach(user-> logger.info(user.getId()+","+user.getName()+","+user.getAddress()));
         } finally {

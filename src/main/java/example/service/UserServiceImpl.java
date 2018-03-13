@@ -3,6 +3,7 @@ package example.service;
 
 import example.dao.UserDao;
 import example.pojo.User;
+import example.pojo.Usertwo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public List<User> getAllUser() {
+    public List<Usertwo> getAllUser() {
         return userDao.getAllUsers();
     }
 

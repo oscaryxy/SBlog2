@@ -4,8 +4,8 @@
         <!--命名空间是对应接口的包名+类名,指定要映射的接口 -->
 <mapper namespace="example.dao.UserDao">
     <!--id是接口中的方法名，结果类型如没有在mybatis.xml文件中配置别名，则必须使用全名称（包名+类名） -->
-    <select id="getAllUsers" resultType="User">
-        select id,`name`,address from user
+    <select id="getAllUsers" resultType="Usertwo">
+        select id,`name`,address from usertwo
     </select>
 
     <!--select表示查询,它的id名称必须与DAO层接口的方法名相同,否则无法绑定-->

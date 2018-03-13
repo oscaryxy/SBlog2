@@ -2,6 +2,7 @@ package example.controller;
 
 
 import example.pojo.User;
+import example.pojo.Usertwo;
 import example.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class UserController {
     public ModelAndView getUser() {
         System.out.println("访问page1的后台。。。");
         ModelAndView mav = new ModelAndView("page1");
-        List<User> users = service.getAllUser();
+        List<Usertwo> users = service.getAllUser();
         System.out.println(users);
         mav.addObject("user", users.get(0));
         return mav;
@@ -52,7 +53,7 @@ public class UserController {
     @ResponseBody
     public String sayHi(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("v");
-        List<User> users = service.getAllUser();
+        List<Usertwo> users = service.getAllUser();
         logger.info("{name:yxy,context:hi,你好}");
         return name+"-{name:yxy,context:hi,你好}"+users;
     }
