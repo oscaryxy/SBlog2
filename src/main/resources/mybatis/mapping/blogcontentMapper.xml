@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--命名空间是对应接口的包名+类名,指定要映射的接口 -->
+<mapper namespace="example.dao.BlogContentDao">
+    <insert id="insertBlogContent" parameterType="example.pojo.blogcontent">
+        INSERT INTO blogcontent(blogname,writername,keyword,blog)VALUES (#{blogname},#{writername},#{keyword},#{blog})
+    </insert>
+</mapper>

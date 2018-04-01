@@ -1,17 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/3/11
-  Time: 23:16
-  To change this template use File | Settings | File Templates.
---%>
-<%--
- Created by IntelliJ IDEA.
- User: alvin
- Date: 15/9/8
- Time: 下午6:22
- To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -22,9 +9,15 @@
     <title></title>
 </head>
 <body>
-登入失败!
+登陆失败!
 ${message}
 <br>
-<a href="<%=path%>/index.jsp" rel="external nofollow" >返回</a>
+<a href="<%=path%>/index.jsp" rel="external nofollow" >返回登陆页面</a>
+<style type="text/css">
+    body{
+        background-image: url(/image/loing.jpg);
+        background-size: cover;
+    }
+</style>
 </body>
 </html>

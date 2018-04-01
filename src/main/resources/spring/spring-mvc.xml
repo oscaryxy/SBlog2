@@ -12,19 +12,27 @@
     <!--本文件相当于-->
 <!--启用spring的注解annotation -->
 <context:annotation-config/>
-
 <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
 <context:component-scan base-package="example.controller ">
     <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 </context:component-scan>
 
 <!-- 配置注解驱动 可以将request参数与绑定到controller参数上 -->
-<mvc:annotation-driven/>
-
-<!-- 添加视图解析器前后缀，这里默认使用.jsp文件-->
+    <mvc:annotation-driven/>
+    <!-- 允许使用“/”做整体映射 -->
+    <mvc:default-servlet-handler/>
+    <!-- 添加视图解析器前后缀，这里默认使用.jsp文件-->
 <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
     <property name="prefix" value="/WEB-INF/view/"/><!--设置JSP文件的目录位置-->
     <property name="suffix" value=".jsp"/>
 </bean>
+
+    <!-- 对文件上传的处理，这里声明的id必须为multipartResolver-->
+    <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+        <!--  最大为100M，单位为字节   -->
+        <property name="maxUploadSize" value="104857600"></property>
+        <property name="defaultEncoding" value="utf-8"></property>
+        <property name="maxInMemorySize" value="40960"></property>
+    </bean>
 </beans>

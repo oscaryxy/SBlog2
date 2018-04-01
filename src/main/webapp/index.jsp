@@ -5,7 +5,7 @@
 %>
 <html>
 <head>
-    <title></title>
+    <title>博客登陆</title>
 </head>
 <body>
 <br>
@@ -13,10 +13,13 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
 <form name="form1" action="/user/login" method="post" >
-    <table width="300" border="1" align="center">
+    <table width="350" border="1" align="center">
         <tr>
-            <td colspan="2">登入窗口</td>
+            <td colspan="2"style="text-align: center">博客登入窗口</td>
         </tr>
         <tr>
             <td>用户名:</td>
@@ -31,11 +34,16 @@
         <tr>
             <td colspan="2">
                 <input type="submit" name="submit" value="登录"/>
+                <a href="/regist.jsp" rel="external nofollow" >注册</a>
             </td>
-
-
         </tr>
     </table>
 </form>
+<style type="text/css">
+    body{
+        background-image: url(image/loing.jpg);
+        background-size: cover;
+    }
+</style>
 </body>
 </html>

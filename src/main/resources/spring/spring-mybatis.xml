@@ -20,7 +20,6 @@
             </list>
         </property>
     </bean>
-
     <!-- 配置mysql数据源 -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <!-- 使用properties来配置 -->
@@ -37,29 +36,44 @@
             <value>${password}</value>
         </property>
     </bean>
-
     <!-- 自动扫描了所有的XxxxMapper.xml对应的mapper接口文件，这样就不用一个一个手动配置Mpper的映射了，只要Mapper接口类和Mapper映射文件对应起来就可以了。 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="example.dao.*" />
     </bean>
-
     <!-- 配置Mybatis的文件 ，mapperLocations配置**Mapper.xml文件位置，configLocation配置mybatis-config文件位置-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="mapperLocations" value="classpath:mybatis/mapping/UserDaoMapper.xml"/>
+        <property name="mapperLocations" value="classpath:mybatis/mapping/*.xml"/>
         <property name="configLocation" value="classpath:mybatis/mybatis.xml" />
     </bean>
-
     <!-- 自动扫描注解的bean -->
     <context:component-scan base-package="example.*" />
-
-    <!-- 用eclipse的同学说不用配置该项（未验证），我也认为Mapper文件已经和接口对应起来了也不用配置的，但是IDEA一直报错无法注入UserDao，增加该配置后就ok了。每一个Mapper都需要注入sqlSessionFactory和指定映射接口 -->
     <bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
         <property name="mapperInterface" value="example.dao.UserDao"></property>
     </bean>
+    <bean id="BlogContentDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+        <property name="mapperInterface" value="example.dao.BlogContentDao"></property>
+    </bean>
 
 
+    <!--json转换器-->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list >
+                <ref bean="mappingJacksonHttpMessageConverter" />
+            </list>
+        </property>
+    </bean>
+    <bean id="mappingJacksonHttpMessageConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
 
 
 </beans>

@@ -12,5 +12,9 @@
     <select id="selectByName" parameterType="string" resultType="User">
         select * from user where username = #{username}
     </select>
+
+    <insert id="aregist" parameterType="example.pojo.User">
+        INSERT INTO user(username,name,password,word)VALUES (#{username},#{name},#{password},#{word})
+    </insert>
 </mapper>
 
